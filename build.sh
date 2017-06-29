@@ -53,7 +53,7 @@ EOF
    ## Build powershell core
    rawRid="$(dotnet --info | grep RID)"
    rid=${rawRid##* } # retain the part after the last space
-   dotnet publish --configuration Linux src/powershell-unix/ --output bin --runtime $rid
+   dotnet publish --self-contained --configuration Linux src/powershell-unix/ --output bin --runtime $rid
 
    echo 'You can run powershell from bin/, but some modules that are normally added by the Restore-PSModule step will not be available.'
 fi
